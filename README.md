@@ -59,7 +59,7 @@ Update a user's email.
 
 ---
 
->**`disabel_user`**
+>**`disable_user`**
 
 Disable a user.
 
