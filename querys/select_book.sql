@@ -1,8 +1,8 @@
 USE `library`;
 
 SELECT 
-	`book_id`,
-	`book_name`,
+    `book_id`,
+    `book_name`,
     `autor`
     
 FROM `books`
