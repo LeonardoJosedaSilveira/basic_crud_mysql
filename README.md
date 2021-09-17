@@ -57,6 +57,8 @@ Extends return date by 3 days.
 
 Update a user's email.
 
+---
+
 >**`disabel_user`**
 
 Disable a user.
