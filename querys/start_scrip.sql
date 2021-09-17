@@ -4,12 +4,14 @@ CREATE TABLE IF NOT EXISTS `library`.`users` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `user_name` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,
+  `enable` BOOLEAN,
   PRIMARY KEY (`user_id`));
 
 CREATE TABLE IF NOT EXISTS `library`.`books` (
   `book_id` INT NOT NULL AUTO_INCREMENT,
   `book_name` VARCHAR(45) NULL,
   `autor` VARCHAR(45) NULL,
+  `enable` BOOLEAN,
   PRIMARY KEY (`book_id`));
 
 CREATE TABLE IF NOT EXISTS `library`.`loan` (
@@ -30,27 +32,26 @@ CREATE TABLE IF NOT EXISTS `library`.`loan` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-INSERT INTO library.users(user_name, email)
+INSERT INTO library.users(user_name, email, enable)
 VALUES
-	('leo','leo@leo.com'),
-  ('pedro','pedro@pedro.com'),
-  ('wil','wil@wil.com'),
-  ('vraw','vraw@vraw.com'),
-  ('unreal','unreal@unreal.com');
+  ('leo','leo@leo.com', true),
+  ('pedro','pedro@pedro.com', true),
+  ('wil','wil@wil.com', true),
+  ('vraw','vraw@vraw.com', true),
+  ('unreal','unreal@unreal.com', true);
 
-INSERT INTO library.books(book_name, autor)
+INSERT INTO library.books(book_name, autor, enable)
 VALUES
-	('Karate-Do: My Way of Life','Gichin Funakoshi'),
-  ('Mitos do Shotokan','Kousaku Yokota'),
-  ('Harry Potter e A Pedra Filosofal','J.K. Rowling'),
-  ('Frankenstein','Mary Shelley'),
-  ('Dr Jekyll and MR Hyde ','Robert Louis Stevenson');
+  ('Karate-Do: My Way of Life','Gichin Funakoshi', true),
+  ('Mitos do Shotokan','Kousaku Yokota', true),
+  ('Harry Potter e A Pedra Filosofal','J.K. Rowling', true),
+  ('Frankenstein','Mary Shelley', true),
+  ('Dr Jekyll and MR Hyde ','Robert Louis Stevenson', true);
 
 INSERT INTO library.loan(user_id, book_id, date_loan, data_back)
 VALUES
-	(1, 2, now(), now() + interval 7 day),
+  (1, 2, now(), now() + interval 7 day),
   (1, 1, now(), now() + interval 7 day),
   (2, 3, now(), now() + interval 7 day),
   (3, 4, now(), now() + interval 7 day),
   (4, 5, now(), now() + interval 7 day);
-	
