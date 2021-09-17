@@ -14,22 +14,20 @@ CREATE TABLE IF NOT EXISTS `library`.`books` (
   PRIMARY KEY (`book_id`));
 
 CREATE TABLE IF NOT EXISTS `library`.`loan` (
-  `user_id` INT NULL,
-  `book_id` INT NULL,
+  `user_id` INT NOT NULL,
+  `book_id` INT NOT NULL,
   `date_loan` DATETIME NULL,
-  `data_back` DATETIME NULL,
+  `date_back` DATETIME NULL,
   INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
   INDEX `book_id_idx` (`book_id` ASC) VISIBLE,
   CONSTRAINT `user_id`
     FOREIGN KEY (`user_id`)
     REFERENCES `library`.`users` (`user_id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE CASCADE,
   CONSTRAINT `book_id`
     FOREIGN KEY (`book_id`)
     REFERENCES `library`.`books` (`book_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON DELETE NO ACTION);
 
 INSERT INTO library.users(user_name, email, enable)
 VALUES
