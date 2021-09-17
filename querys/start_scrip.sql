@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `library`.`loan` (
   CONSTRAINT `book_id`
     FOREIGN KEY (`book_id`)
     REFERENCES `library`.`books` (`book_id`)
-    ON DELETE NO ACTION);
+    ON DELETE CASCADE);
 
 INSERT INTO library.users(user_name, email, enable)
 VALUES
@@ -45,7 +45,7 @@ VALUES
   ('Frankenstein','Mary Shelley'),
   ('Dr Jekyll and MR Hyde ','Robert Louis Stevenson');
 
-INSERT INTO library.loan(user_id, book_id, date_loan, data_back)
+INSERT INTO library.loan(user_id, book_id, date_loan, date_back)
 VALUES
   (1, 2, now(), now() + interval 7 day),
   (1, 1, now(), now() + interval 7 day),

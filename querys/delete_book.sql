@@ -1,5 +1,5 @@
 USE `library`;
 
-DELETE FROM books
+DELETE FROM `books`
 
-WHERE book_name = 'O Pequeno Príncipe';
+WHERE `book_name` = 'O Pequeno Príncipe';

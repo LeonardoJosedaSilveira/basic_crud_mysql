@@ -8,3 +8,4 @@ SET
 WHERE
 	`user_id` = 6 AND
     `book_id` = 6;
+    

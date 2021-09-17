@@ -19,4 +19,3 @@ WHERE
     
 ORDER BY
 	`date_loan`;
-
