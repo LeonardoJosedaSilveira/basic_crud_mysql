@@ -1,4 +1,4 @@
 USE `library`;
 
 INSERT INTO `users`(user_name, email, enable)
-VALUE ('Jão', 'jao@jao', true);
+VALUE ('Jão', 'jao@jao.com', true);

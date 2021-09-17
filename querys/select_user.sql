@@ -8,4 +8,4 @@ SELECT
     
 FROM `users`
 
-WHERE email = 'jao@jao';
+WHERE email = 'jao@jao.com';
