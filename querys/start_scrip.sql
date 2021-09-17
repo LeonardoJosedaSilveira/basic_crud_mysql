@@ -3,7 +3,7 @@ CREATE SCHEMA IF NOT EXISTS `library`;
 CREATE TABLE IF NOT EXISTS `library`.`users` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `user_name` VARCHAR(45) NULL,
-  `email` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NULL UNIQUE,
   `enable` BOOLEAN,
   PRIMARY KEY (`user_id`));
 
@@ -11,7 +11,6 @@ CREATE TABLE IF NOT EXISTS `library`.`books` (
   `book_id` INT NOT NULL AUTO_INCREMENT,
   `book_name` VARCHAR(45) NULL,
   `autor` VARCHAR(45) NULL,
-  `enable` BOOLEAN,
   PRIMARY KEY (`book_id`));
 
 CREATE TABLE IF NOT EXISTS `library`.`loan` (
@@ -40,13 +39,13 @@ VALUES
   ('vraw','vraw@vraw.com', true),
   ('unreal','unreal@unreal.com', true);
 
-INSERT INTO library.books(book_name, autor, enable)
+INSERT INTO library.books(book_name, autor)
 VALUES
-  ('Karate-Do: My Way of Life','Gichin Funakoshi', true),
-  ('Mitos do Shotokan','Kousaku Yokota', true),
-  ('Harry Potter e A Pedra Filosofal','J.K. Rowling', true),
-  ('Frankenstein','Mary Shelley', true),
-  ('Dr Jekyll and MR Hyde ','Robert Louis Stevenson', true);
+  ('Karate-Do: My Way of Life','Gichin Funakoshi'),
+  ('Mitos do Shotokan','Kousaku Yokota'),
+  ('Harry Potter e A Pedra Filosofal','J.K. Rowling'),
+  ('Frankenstein','Mary Shelley'),
+  ('Dr Jekyll and MR Hyde ','Robert Louis Stevenson');
 
 INSERT INTO library.loan(user_id, book_id, date_loan, data_back)
 VALUES
